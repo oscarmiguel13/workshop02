@@ -80,14 +80,13 @@
             if (is_numeric($_COOKIE['my_guess'])){
                 echo "<div class='padleftandright'> You have chosen " . $_COOKIE['my_guess'] . ".</br></div>";
             }
-            elseif (!ctype_digit($_COOKIE['my_guess'])) {
-                echo "<div class='padleftandright'> Your guess is not a number!</br></div>";   
-            }
             else {
-                echo "<div class='padleftandright'> Missing quess parameter" . "</br></div>";
+                echo "<div class='padleftandright'> Missing guess parameter" . "</br></div>";
             }
                 
-            
+            if (!ctype_digit($_COOKIE['my_guess']) && ($_COOKIE['my_guess']) != '' ) {
+                echo "<div class='padleftandright'> Your guess is not a number!</br></div>";   
+            }
             //echo "The random is " . $_COOKIE['my_rand'] . ".</br>";
             compare_two_numbers($_COOKIE['my_guess'], $_COOKIE['my_rand']);
             echo "</br>";
